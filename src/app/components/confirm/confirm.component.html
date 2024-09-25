@@ -1,0 +1,79 @@
+<h1 class="text-6xl text-black-50 text-center p-5">Por favor confirme el pago</h1>
+<div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+  <form [formGroup]="formConfirm" class="space-y-6" action="#" method="POST">
+    <div>
+      <label
+        for="email"
+        class="block text-sm font-medium leading-6 text-gray-900"
+        >Codigo de sesion</label
+      >
+      <div class="mt-2">
+        <input
+          id="session_id"
+          name="session_id"
+          type="text"
+          autocomplete="session_id"
+          required
+          readonly
+          formControlName="session_id"
+          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        />
+      </div>
+    </div>
+    <div>
+      <label
+        for="email"
+        class="block text-sm font-medium leading-6 text-gray-900"
+        >Codigo unico</label
+      >
+      <div class="mt-2">
+        <input
+          id="codigo"
+          name="codigo"
+          type="text"
+          autocomplete="codigo"
+          required
+          formControlName="token"
+          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        />
+      </div>
+    </div>
+    <div>
+      <label
+        for="email"
+        class="block text-sm font-medium leading-6 text-gray-900"
+        >Valor</label
+      >
+      <div class="mt-2">
+        <input
+          id="value"
+          name="value"
+          type="text"
+          autocomplete="value"
+          required
+          formControlName="amount"
+          class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        />
+      </div>
+    </div>
+    <div>
+      <button
+        *ngIf="!this.formConfirm.valid"
+        type="button"
+        class="text-white w-full bg-blue-400 dark:bg-blue-500 cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+        disabled
+      >
+      Confirmar
+      </button>
+
+      <button
+        *ngIf="this.formConfirm.valid"
+        type="button"
+        (click)="submitConfirm()"
+        class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+      >
+        Confirmar
+      </button>
+    </div>
+  </form>
+</div>
